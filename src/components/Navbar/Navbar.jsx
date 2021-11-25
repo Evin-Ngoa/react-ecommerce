@@ -6,10 +6,10 @@ import { ShoppingCart } from '@material-ui/icons'
 
 import useStyles from './styles';
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
     const classes = useStyles();
     return (
-        <div>
+        <>
             <AppBar position="fixed" className={classes.appBar} color="inherit">
                 <Toolbar>
                     <Typography variant="h6" className={classes.title} color="inherit">
@@ -21,14 +21,14 @@ const Navbar = () => {
                     {/* Right Side */}
                     <div className={classes.button} >
                         <IconButton aria-label="Show Cart Items" color="inherit">
-                            <Badge badgeContent={2} color="secondary">
+                            <Badge badgeContent={totalItems} color="secondary">
                                 <ShoppingCart />
                             </Badge>
                         </IconButton>
                     </div>
                 </Toolbar>
             </AppBar>
-        </div>
+        </>
     )
 }
 
