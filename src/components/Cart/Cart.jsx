@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Typography, Button, Grid } from  '@material-ui/core'
 import useStyles from './styles'
 import CartItem from './CartItem/CartItem'
+import { Link } from 'react-router-dom'
 
 const Cart = ({ cart }) => {
 
@@ -12,7 +13,8 @@ const Cart = ({ cart }) => {
 
     const EmptyCart = () => (
             <Typography variant="subtitle1">
-                Cart is empty
+                Cart is empty 
+                <Link to="/" className={classes.link}>Continue Shopping</Link>
             </Typography>
     )
 
@@ -22,7 +24,6 @@ const Cart = ({ cart }) => {
                 {
                 cart.line_items.map((item) =>(
                     <Grid item key={item.id} sm={4} >
-                        <div>{item.name} </div>
                         <CartItem item={item} />
                     </Grid>
                 ))
@@ -45,11 +46,10 @@ const Cart = ({ cart }) => {
         </>
     )
     
-
     return (
-        <Container>
+        <Container className={classes.cartContainer}>
             <div className={classes.toolbar} />
-            <Typography className={classes.title} variant="h3" gutterBottom>
+            <Typography className={classes.title} variant="h4" gutterBottom>
                 Your Shopping Cart
             </Typography>
             {/* !0 is false check if empty */}
