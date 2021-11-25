@@ -9,7 +9,7 @@ import useStyles from './styles'
 //     { id: 2, name: 'MacBook', description: 'Apple MacBook', price: '$4', image:'https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/77/880153/1.jpg?4990'},
 // ];
 
-const Products = ({ products }) => {
+const Products = ({ products, onAddToCart }) => {
     const classes = useStyles();
     return (
         <main className={classes.content}>
@@ -18,7 +18,7 @@ const Products = ({ products }) => {
                 {
                     products.map((product) => (
                         <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                            <Product product={product} />
+                            <Product product={product} onAddToCart={onAddToCart} />
                         </Grid>
                     ))
                 }
