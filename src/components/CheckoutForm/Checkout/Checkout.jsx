@@ -21,8 +21,6 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
             try {
                 const token = await commerce.checkout.generateToken(cart.id, { type: 'cart' } );
 
-                // console.log("token", token)
-
                 setCheckoutToken(token)
             } catch (error) {
                 // redirect to home if refresh from checkout url
@@ -32,7 +30,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error }) => {
         }
 
         generateToken();
-    }, [])
+    }, [cart.id, history])
 
     let Confirmation = () => (order.customer ? (
         <>

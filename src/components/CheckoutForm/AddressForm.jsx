@@ -29,8 +29,6 @@ const AddressForm = ({ checkoutToken, next }) => {
     const getShippingCountries = async (checkoutTokenId) => {
     const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
 
-        console.log(countries)
-
         setShippingCountries(countries);
         // countries is an object hence do the object.keys instead of countries[0]
         setShippingCountry(Object.keys(countries)[0]);
@@ -38,7 +36,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     const getSubRegions = async (countryCode) => {
         const { subdivisions } = await commerce.services.localeListSubdivisions(countryCode);
-        console.log(subdivisions)
+      
         setShippingSubdivisions(subdivisions);
         setShippingSubdivision(Object.keys(subdivisions)[0]);
     };
@@ -52,7 +50,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     useEffect(() => {
         getShippingCountries(checkoutToken.id);
-    }, []);
+    }, [checkoutToken.id]);
 
     // If the shippingCountry changes then call getSubRegions
     useEffect(() => {
@@ -62,7 +60,7 @@ const AddressForm = ({ checkoutToken, next }) => {
 
     useEffect(() => {
         if (shippingSubdivision) getShippingOptions(checkoutToken.id, shippingCountry, shippingSubdivision);
-    }, [shippingSubdivision]);
+    }, [shippingSubdivision, checkoutToken.id, shippingCountry]);
 
     return (
             <>
