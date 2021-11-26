@@ -42,7 +42,7 @@ const Checkout = ({ cart }) => {
     }
     
     // If step is 0 then show address form else show payment form
-    const Form = () => activeStep === 0 ? <AddressForm next={next} checkoutToken={checkoutToken} /> : <PaymentForm />
+    const Form = () => activeStep === 0 ? <AddressForm next={next} checkoutToken={checkoutToken} /> : <PaymentForm checkoutToken={checkoutToken} />
 
     return (
         <>
