@@ -4,7 +4,7 @@ import { InputLabel, Select, MenuItem, Grid } from '@material-ui/core';
 
 function FormSelect({   label, value, onChange, data }) {
   const { control } = useFormContext();
-  const isError = false;
+
 
   return (
     <Grid item xs={12} sm={6}>

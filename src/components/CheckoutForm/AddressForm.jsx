@@ -68,7 +68,7 @@ const AddressForm = ({ checkoutToken, next }) => {
             <>
             <Typography variant="h6" gutterBottom>Shipping address</Typography>
             <FormProvider {...methods}>
-                {/* ...data  from the form react hook form inputs plus the drop downs*/}
+                {/* ...data  from the form react hook form inputs plus the drop down*/}
                 <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
                
                     <Grid container spacing={3}>
