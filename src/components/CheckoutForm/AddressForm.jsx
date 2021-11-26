@@ -6,7 +6,7 @@ import { commerce } from '../../lib/commerce';
 import FormInput from './CustomTextInput/FormInput';
 import FormSelect from './CustomTextInput/FormSelect';
 
-const AddressForm = ({ checkoutToken }) => {
+const AddressForm = ({ checkoutToken, next }) => {
     const [shippingCountries, setShippingCountries] = useState([]);
     // Selected country
     const [shippingCountry, setShippingCountry] = useState('');
@@ -68,8 +68,9 @@ const AddressForm = ({ checkoutToken }) => {
             <>
             <Typography variant="h6" gutterBottom>Shipping address</Typography>
             <FormProvider {...methods}>
-                {/* <form onSubmit={methods.handleSubmit((data) => test({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}> */}
-                <form >
+                {/* ...data  from the form react hook form inputs plus the drop downs*/}
+                <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
+               
                     <Grid container spacing={3}>
                         <FormInput  name="firstName" label="First name" />
                         <FormInput  name="lastName" label="Last name" />

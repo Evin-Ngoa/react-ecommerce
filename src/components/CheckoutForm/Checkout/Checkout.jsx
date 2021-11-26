@@ -10,6 +10,7 @@ const Checkout = ({ cart }) => {
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
     const [checkoutToken, setCheckoutToken] = useState(null);
+    const [shippingData, setShippingData] = useState(null);
     const steps = ['Shipping Address', 'Payment Details'];
 
     useEffect(() => {
@@ -30,9 +31,18 @@ const Checkout = ({ cart }) => {
         generateToken();
     }, [])
 
+    // Based on the previous step. You are changing the current state.
+    const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
+
+    const next = (data) => {
+        setShippingData(data);
+
+        nextStep();
+    }
     
     // If step is 0 then show address form else show payment form
-    const Form = () => activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} /> : <PaymentForm />
+    const Form = () => activeStep === 0 ? <AddressForm next={next} checkoutToken={checkoutToken} /> : <PaymentForm />
 
     return (
         <>
