@@ -23,12 +23,8 @@ Use the following Card details to checkout or type `42` repeatedly to the end.
 ### Project Goal
 - To learn React by making a basic ecommerce with core functionalities as fast as possible. I used CHEC PLATFORM (commerce.js) to
 provide backend API
-- Project deployment to netlify through github.
-- Git useof multiple branches and pull requests.
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Learn Project deployment to netlify through github.
+- Git : Use of multiple branches and pull requests.
 
 ## Running the project
 
