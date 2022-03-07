@@ -1,5 +1,5 @@
 # react-ecommerce
-### [Live Site](https://evin-react-ecommerce-112021.netlify.app/)
+### [Live Site](https://evin-react-ecommerce.netlify.app/)
 A simple fully functional eCommerce application using commerce.js as the backend.
 
 While building it I learnt many advanced React & JavaScript topics, as well as how to use Stripe for card transactions.
